@@ -1,6 +1,6 @@
 # Vietnamese Analysis Plugin for Elasticsearch
 
-Vietnamese Analysis plugin integrates Vietnamese language analysis into Elasticsearch. It uses [C++ tokenizer for Vietnamese](https://github.com/coccoc/coccoc-tokenizer) library developed by
+Vietnamese Analysis plugin integrates Vietnamese language analysis into Elasticsearch. It uses [C++ tokenizer for Vietnamese](https://github.com/miczone/coccoc-tokenizer) library developed by
 CocCoc team for their Search Engine and Ads systems.
 
 The plugin provides `vi_analyzer` analyzer, `vi_tokenizer` tokenizer and `vi_stop` stop filter. The `vi_analyzer` is composed of the `vi_tokenizer` tokenizer and `stop` filter.
@@ -67,20 +67,20 @@ The above example produces the following terms:
 ## Build from Source
 ### Step 1: Build C++ tokenizer for Vietnamese library
 ```sh
-git clone https://github.com/coccoc/coccoc-tokenizer.git
+git clone https://github.com/miczone/coccoc-tokenizer.git
 cd coccoc-tokenizer && mkdir build && cd build
 cmake -DBUILD_JAVA=1 ..
 make install
 ```
 
-Check their [repo](https://github.com/coccoc/coccoc-tokenizer) for more information to build the library.
+Check their [repo](https://github.com/miczone/coccoc-tokenizer) for more information to build the library.
 
 ### Step 2: Build the plugin
 
 Clone the plugin’s source code:
 
 ```sh
-git clone https://github.com/duydo/elasticsearch-analysis-vietnamese.git
+git clone https://github.com/miczone/elasticsearch-analysis-vietnamese.git
 ```
 
 Edit the `elasticsearch-analysis-vietnamese/pom.xml` to change the version of Elasticsearch (same as plugin version) you want to build the plugin with:
@@ -108,7 +108,7 @@ bin/elasticsearch-plugin install file://target/releases/elasticsearch-analysis-v
 ## Compatible Versions
 
 From version 7.12.11, the plugin uses CocCoc C++ tokenizer instead of the VnTokenizer library (by Lê Hồng Phương),
-I won't maintain the plugin with the VnTokenizer anymore. If you want to continue developing with it, you can check branch [vntokenizer](https://github.com/duydo/elasticsearch-analysis-vietnamese/tree/vntokenizer).  
+I won't maintain the plugin with the VnTokenizer anymore. If you want to continue developing with it, you can check branch [vntokenizer](https://github.com/miczone/elasticsearch-analysis-vietnamese/tree/vntokenizer).  
 
 If you want to use the plugin with prior versions of Elasticsearch, you can build the plugin yourself with above guide. 
 

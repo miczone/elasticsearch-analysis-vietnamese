@@ -58,8 +58,12 @@ public class Tokenizer {
         if (text == null) {
             throw new IllegalArgumentException("text is null");
         }
-        long resPointer = segmentPointer(text, forTransforming, tokenizeOption, keepPunctuation);
 
+        long resPointer = segmentPointer(text, forTransforming, tokenizeOption, keepPunctuation);
+        if(resPointer < 0) {
+			throw new IllegalArgumentException("segmentPointer JNI error");
+		}
+        
         final List<Token> res = new ArrayList<>();
         // Positions from JNI implementation .cpp file
         long normalizedStringPointer = Unsafe.UNSAFE.getLong(resPointer + 8);
