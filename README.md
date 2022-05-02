@@ -114,6 +114,7 @@ If you want to use the plugin with prior versions of Elasticsearch, you can buil
 
 | Vietnamese Analysis Plugin | Elasticsearch |
 | -------------------------- | ------------- |
+| 8.1.3                      | 8.1.3        |
 | master                     | 7.12.1        |
 | 7.12.1                     | 7.12.1        |     
 | 7.3.1                      | 7.3.1         |   
