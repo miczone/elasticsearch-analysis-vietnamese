@@ -99,6 +99,16 @@ cd elasticsearch-analysis-vietnamese
 mvn package
 ```
 
+Build the plugin 8.1.3:
+```sh
+wget "https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz"
+tar xf apache-maven-3.8.5-bin.tar.gz
+mv apache-maven-3.8.5 /usr/local/apache-maven
+export JAVA_HOME="/usr/share/elasticsearch/jdk"
+export ES_JAVA_HOME="/usr/share/elasticsearch/jdk"
+/usr/local/apache-maven/bin/mvn package
+```
+
 ### Step 3: Installation the plugin on Elasticsearch
 
 ```sh
