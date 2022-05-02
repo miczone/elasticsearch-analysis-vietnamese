@@ -71,12 +71,12 @@ public class VietnameseAnalysisIntegrationTests extends ESIntegTestCase {
                         .endObject()
                     .endObject()
                 .endObject();
-        client().admin().indices().preparePutMapping("test").setType("_doc").setSource(mapping).get();
+        client().admin().indices().preparePutMapping("test").setSource(mapping).get();
         final XContentBuilder source = jsonBuilder()
                 .startObject()
                     .field("foo", "công nghệ thông tin Việt Nam")
                 .endObject();
-        index("test", "_doc", "1", source);
+        index("test", "1", source);
         refresh();
         SearchResponse response = client().prepareSearch("test").
                 setQuery(
