@@ -50,6 +50,14 @@ final class VietnameseTokenizerImpl {
         } else {
             option = TokenizeOption.NORMAL;
         }
+
+        /*
+        SecurityManager securityManager = System.getSecurityManager();
+        if (securityManager != null) {
+            securityManager.checkPermission(new VietnameseCustomPermission(option));
+        }
+        */
+
         tokenizer = AccessController.doPrivileged(
                 (PrivilegedAction<Tokenizer>) () -> new Tokenizer(config.dictPath)
         );
