@@ -39,27 +39,27 @@ public class Unsafe {
 	}
 
 	public static float getFloat(byte[] buffer, int offset) {
-		return UNSAFE.getFloat(buffer, (long) (sun.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + offset));
+		return UNSAFE.getFloat(buffer, (long) (jdk.internal.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + offset));
 	}
 
 	public static double getDouble(byte[] buffer, int offset) {
-		return UNSAFE.getDouble(buffer, (long) (sun.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + offset));
+		return UNSAFE.getDouble(buffer, (long) (jdk.internal.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + offset));
 	}
 
 	public static long getLong(byte[] buffer, int offset) {
-		return UNSAFE.getLong(buffer, (long) (sun.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + offset));
+		return UNSAFE.getLong(buffer, (long) (jdk.internal.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + offset));
 	}
 
 	public static int getInt(byte[] buffer, int offset) {
-		return UNSAFE.getInt(buffer, (long) (sun.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + offset));
+		return UNSAFE.getInt(buffer, (long) (jdk.internal.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + offset));
 	}
 
 	public static short getShort(byte[] buffer, int offset) {
-		return UNSAFE.getShort(buffer, (long) (sun.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + offset));
+		return UNSAFE.getShort(buffer, (long) (jdk.internal.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + offset));
 	}
 
 	public static byte getByte(byte[] buffer, int offset) {
-		return UNSAFE.getByte(buffer, (long) (sun.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + offset));
+		return UNSAFE.getByte(buffer, (long) (jdk.internal.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + offset));
 	}
 
 	public static void writeString(String str, OutputStream os, long unsafeBuffer)
@@ -88,22 +88,22 @@ public class Unsafe {
 	}
 
 	public static void copy(byte[] values, int length, long pointer) {
-		UNSAFE.copyMemory(values, sun.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET, null, pointer, length);
+		UNSAFE.copyMemory(values, jdk.internal.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET, null, pointer, length);
 	}
 
 	public static void copy(byte[] values, int off, int length, long pointer) {
-		UNSAFE.copyMemory(values, sun.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + off, null, pointer, length);
+		UNSAFE.copyMemory(values, jdk.internal.misc.Unsafe.ARRAY_BYTE_BASE_OFFSET + off, null, pointer, length);
 	}
 
 	public static void copy(short[] values, int length, long pointer) {
-		UNSAFE.copyMemory(values, sun.misc.Unsafe.ARRAY_SHORT_BASE_OFFSET, null, pointer, length * Short.BYTES);
+		UNSAFE.copyMemory(values, jdk.internal.misc.Unsafe.ARRAY_SHORT_BASE_OFFSET, null, pointer, length * Short.BYTES);
 	}
 
 	public static void copy(int[] values, int length, long pointer) {
-		UNSAFE.copyMemory(values, sun.misc.Unsafe.ARRAY_INT_BASE_OFFSET, null, pointer, length * Integer.BYTES);
+		UNSAFE.copyMemory(values, jdk.internal.misc.Unsafe.ARRAY_INT_BASE_OFFSET, null, pointer, length * Integer.BYTES);
 	}
 
 	public static void copy(long[] values, int length, long pointer) {
-		UNSAFE.copyMemory(values, sun.misc.Unsafe.ARRAY_LONG_BASE_OFFSET, null, pointer, length * Long.BYTES);
+		UNSAFE.copyMemory(values, jdk.internal.misc.Unsafe.ARRAY_LONG_BASE_OFFSET, null, pointer, length * Long.BYTES);
 	}
 }
