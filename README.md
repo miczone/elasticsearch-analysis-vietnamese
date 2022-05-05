@@ -89,7 +89,7 @@ Edit the `elasticsearch-analysis-vietnamese/pom.xml` to change the version of El
 ...
 <groupId>org.elasticsearch</groupId>
 <artifactId>elasticsearch-analysis-vietnamese</artifactId>
-<version>7.11.2</version>
+<version>8.2.0</version>
 ...
  ```
 
@@ -99,7 +99,7 @@ cd elasticsearch-analysis-vietnamese
 mvn package
 ```
 
-Build the plugin 8.1.3:
+Build the plugin 8.2.0:
 ```sh
 wget "https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz"
 tar xf apache-maven-3.8.5-bin.tar.gz
@@ -124,7 +124,8 @@ If you want to use the plugin with prior versions of Elasticsearch, you can buil
 
 | Vietnamese Analysis Plugin | Elasticsearch |
 | -------------------------- | ------------- |
-| 8.1.3                      | 8.1.3        |
+| 8.2.0                      | 8.2.0         |
+| 8.1.3                      | 8.1.3         |
 | master                     | 7.12.1        |
 | 7.12.1                     | 7.12.1        |     
 | 7.3.1                      | 7.3.1         |   
