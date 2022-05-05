@@ -4,14 +4,14 @@ import java.io.*;
 import java.lang.reflect.Field;
 
 public class Unsafe {
-	public static final sun.misc.Unsafe UNSAFE;
+	public static final jdk.internal.misc.Unsafe UNSAFE;
 
 	static {
-		sun.misc.Unsafe unsafe = null;
+		jdk.internal.misc.Unsafe unsafe = null;
 		try {
-			Field field = sun.misc.Unsafe.class.getDeclaredField("theUnsafe");
+			Field field = jdk.internal.misc.Unsafe.class.getDeclaredField("theUnsafe");
 			field.setAccessible(true);
-			unsafe = (sun.misc.Unsafe) field.get(null);
+			unsafe = (jdk.internal.misc.Unsafe) field.get(null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
