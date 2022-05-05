@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Tokenizer {
     public static final String TOKENIZER_SHARED_LIB_NAME = "coccoc_tokenizer_jni";
-
+    
     static {
         System.loadLibrary(TOKENIZER_SHARED_LIB_NAME);
     }
@@ -36,14 +36,13 @@ public class Tokenizer {
     public static final String UNDERSCORE = "_";
     public static final String COMMA = ",";
     public static final String DOT = ".";
-
-
     private static String dictPath = null;
 
-    private static final class Loader {
+    // Lazy Initialization In Multi-threaded environment
+    private static final class LazyClassHolder {
         private static final Tokenizer INSTANCE = load();
 
-        private Loader() {
+        private LazyClassHolder() {
         }
 
         private static Tokenizer load() {
@@ -53,7 +52,7 @@ public class Tokenizer {
 
     public static Tokenizer getInstance(String dictPath) {
         Tokenizer.dictPath = dictPath;
-        return Loader.INSTANCE;
+        return LazyClassHolder.INSTANCE;
     }
 
     private Tokenizer(String dictPath) {
