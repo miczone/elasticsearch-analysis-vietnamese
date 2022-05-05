@@ -94,6 +94,7 @@
                 <configuration>
 					<encoding>UTF-8</encoding>
 					<release>${maven.compiler.release}</release>
+                    <compilerArgument>-XDignore.symbol.file</compilerArgument>
 				</configuration>
             </plugin>
             <plugin>
