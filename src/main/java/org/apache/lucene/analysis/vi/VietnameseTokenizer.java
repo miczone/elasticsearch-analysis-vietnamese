@@ -51,21 +51,10 @@ public class VietnameseTokenizer extends Tokenizer {
         clearAttributes();
         final Token token = tokenizer.getNextToken();
         if (token != null) {
-            int startOffset = correctOffset(token.getPos());
-            int endOffset = correctOffset(token.getEndPos());
-            
-            if (startOffset < 0) {
-                startOffset = 0;
-            }
-
-            if (endOffset < startOffset) {
-                return false;
-            }
-
             posIncrAtt.setPositionIncrement(1);
             typeAtt.setType(String.format("<%s>", token.getType()));
             termAtt.copyBuffer(token.getText().toCharArray(), 0, token.getText().length());
-            offsetAtt.setOffset(startOffset, offset = endOffset);
+            offsetAtt.setOffset(correctOffset(token.getPos()), offset = correctOffset(token.getEndPos()));
             return true;
         }
         return false;
@@ -75,9 +64,7 @@ public class VietnameseTokenizer extends Tokenizer {
     public final void end() throws IOException {
         super.end();
         final int finalOffset = correctOffset(offset);
-        if (finalOffset > 0) {
-            offsetAtt.setOffset(finalOffset, finalOffset);
-        }
+        offsetAtt.setOffset(finalOffset, finalOffset);
     }
 
     @Override
