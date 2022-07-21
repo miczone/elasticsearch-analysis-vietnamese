@@ -20,6 +20,7 @@ import org.elasticsearch.analysis.VietnameseConfig;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.env.Environment;
 import org.elasticsearch.index.IndexSettings;
+import org.elasticsearch.index.analysis.AbstractIndexAnalyzerProvider;
 
 /**
  * Provider for {@link VietnameseAnalyzer}
@@ -30,7 +31,8 @@ public class VietnameseAnalyzerProvider extends AbstractIndexAnalyzerProvider<Vi
     private final VietnameseAnalyzer analyzer;
 
     public VietnameseAnalyzerProvider(IndexSettings indexSettings, Environment env, String name, Settings settings) {
-        super(indexSettings, name, settings);
+        //super(indexSettings, name, settings);
+        super(name, settings);
         final CharArraySet stopWords = Analysis.parseStopWords(env, settings, VietnameseAnalyzer.getDefaultStopSet());
         analyzer = new VietnameseAnalyzer(new VietnameseConfig(settings), stopWords);
     }
