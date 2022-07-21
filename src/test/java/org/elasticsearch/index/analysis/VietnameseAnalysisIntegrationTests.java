@@ -11,6 +11,7 @@ import org.elasticsearch.plugins.Plugin;
 import org.elasticsearch.plugins.PluginDescriptor;
 import org.elasticsearch.test.ESIntegTestCase;
 import org.elasticsearch.xcontent.XContentBuilder;
+import org.elasticsearch.plugins.PluginRuntimeInfo;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -34,8 +35,9 @@ public class VietnameseAnalysisIntegrationTests extends ESIntegTestCase {
         NodesInfoResponse response = client().admin().cluster().prepareNodesInfo().get();
         for (NodeInfo nodeInfo : response.getNodes()) {
             boolean pluginFound = false;
-            for (PluginDescriptor pluginInfo : nodeInfo.getInfo(PluginsAndModules.class).getPluginInfos()) {
-                if (pluginInfo.getName().equals(AnalysisVietnamesePlugin.class.getName())) {
+            for (PluginRuntimeInfo pluginInfo : nodeInfo.getInfo(PluginsAndModules.class).getPluginInfos()) {
+                PluginDescriptor pluginDescriptor = pluginInfo.descriptor();
+                if (pluginDescriptor.getName().equals(AnalysisVietnamesePlugin.class.getName())) {
                     pluginFound = true;
                     break;
                 }
